@@ -1,0 +1,21 @@
+version: '3'
+services:
+  cpp:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+      - "8080:8080"
+    volumes:
+      - ../CppND-Capstone:/CppND-Capstone
+      - ../options/src:/CppND-Capstone/src
+      - ../scripts/build-project.sh:/build-project.sh
+    environment:
+        - DISPLAY=docker.for.mac.host.internal:0
+    command: >
+      bash -c "
+      chmod +x /build-project.sh &&
+      export DISPLAY=host.docker.internal:0 &&
+      /build-project.sh
+      "
