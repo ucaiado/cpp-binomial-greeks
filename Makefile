@@ -5,6 +5,7 @@ docker-build:
 	build
 
 environment-test:
+	cd scripts/ && bash download-data.sh && cd ..
 	xhost + 127.0.0.1
 	docker-compose \
 	-p cpp-capstone \
