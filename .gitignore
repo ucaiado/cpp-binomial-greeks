@@ -5,6 +5,7 @@
 .DS_store
 .directory
 *.swp
+CppND-Capstone/data/*.csv
 
 # Compiled Object files
 *.slo
