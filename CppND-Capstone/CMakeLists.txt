@@ -7,4 +7,6 @@ set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
 
 project(OptionsData)
 
-add_executable(OptionsData src/main.cpp)
+# Add project executable
+file(GLOB SOURCES "src/*.cpp") #src/*.h
+add_executable(OptionsData ${SOURCES})

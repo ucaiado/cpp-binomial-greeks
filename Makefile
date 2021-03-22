@@ -4,8 +4,10 @@ docker-build:
 	-f dcomposes/docker-compose.basic.yml \
 	build
 
-environment-test:
+download-project-data:
 	cd scripts/ && bash download-data.sh && cd ..
+
+environment-test:
 	xhost + 127.0.0.1
 	docker-compose \
 	-p cpp-capstone \
