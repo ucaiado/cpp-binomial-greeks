@@ -34,3 +34,10 @@ greeks-computation:
 	-p cpp-capstone \
 	-f dcomposes/docker-compose.yml \
 	run cpp
+
+simple-tests:
+	xhost + 127.0.0.1
+	docker-compose \
+	-p cpp-capstone \
+	-f dcomposes/docker-compose.simpletests.yml \
+	run cpp
