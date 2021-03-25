@@ -3,8 +3,14 @@
 
 int main() {
 
-  auto this_data = DataParser::ReturnPaths("PETR4");
+  auto this_paths = DataParser::LoadPaths("PETR4");
 
-  std::cout << "All working 2! " << this_data[43][999] << "\n";
+  std::cout << "All working on LoadPaths! " << this_paths[43][999] << "\n";
+
+
+  auto this_portfolio = DataParser::LoadPortfolio();
+
+  std::cout << "All working on LoadPortfolio! " << this_portfolio.size() << "\n";
+  std::cout << "All working on LoadPortfolio! " << this_portfolio[37].underlying << "\n";
   return 0;
 }

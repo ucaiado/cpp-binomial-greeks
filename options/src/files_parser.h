@@ -5,48 +5,28 @@
 #include <regex>
 #include <string>
 
+#include "option_portfolio.h"
+
 namespace DataParser {
 // Paths
 const std::string kDataDirectory{"../data/"};
 const std::string kPortfolioFilename{"portfolio.csv"};
 
-// System
-// float MemoryUtilization();
-// long UpTime();
-// std::vector<int> Pids();
-// int TotalProcesses();
-// int RunningProcesses();
-// std::string OperatingSystem();
-// std::string Kernel();
+/**
+ * Load data from already generated simulations in a vector
+ *
+ * @param values Container whose values are summed.
+ * @return vector of vectors of floar with the return paths.
+ */
+std::vector<std::vector<float>> LoadPaths(std::string s_asset);
 
-// // CPU
-// enum CPUStates {
-//   kUser_ = 0,
-//   kNice_,
-//   kSystem_,
-//   kIdle_,
-//   kIOwait_,
-//   kIRQ_,
-//   kSoftIRQ_,
-//   kSteal_,
-//   kGuest_,
-//   kGuestNice_
-// };
-// std::vector<std::string> CpuUtilization();
-// long Jiffies();
-// long ActiveJiffies();
-// long ActiveJiffies(int pid);
-// long IdleJiffies();
 
-// Processes
-// std::string Command(int pid);
-// std::string Ram(int pid);
-// std::string Uid(int pid);
-// std::string User(int pid);
-// long int UpTime(int pid);
-
-// Returns matrix
-std::vector<std::vector<float>> ReturnPaths(std::string s_asset);
-};  // namespace LinuxParser
+/**
+ * Load data from portfolio file in a vector
+ *
+ * @return vector of UnderlyingPortfolio.
+ */
+std::vector<Portfolio::UnderlyingPortfolio> LoadPortfolio();
+};  // namespace DataParser
 
 #endif
