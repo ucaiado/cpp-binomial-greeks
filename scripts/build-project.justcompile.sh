@@ -2,6 +2,7 @@
 BuildDir="build"
 
 cd /CppND-Capstone/
+lang-format src/* -i
 if [ ! -d "$BuildDir" ]; then
 mkdir $BuildDir
 else

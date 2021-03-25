@@ -20,13 +20,12 @@ const std::string kPortfolioFilename{"portfolio.csv"};
  */
 std::vector<std::vector<float>> LoadPaths(std::string s_asset);
 
-
 /**
  * Load data from portfolio file in a vector
  *
  * @return vector of UnderlyingPortfolio.
  */
 std::vector<Portfolio::UnderlyingPortfolio> LoadPortfolio();
-};  // namespace DataParser
+}; // namespace DataParser
 
 #endif

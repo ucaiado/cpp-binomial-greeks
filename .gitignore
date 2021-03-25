@@ -6,6 +6,7 @@
 .directory
 *.swp
 CppND-Capstone/data/*.csv
+options/src/main.cpp-*
 
 # Compiled Object files
 *.slo
