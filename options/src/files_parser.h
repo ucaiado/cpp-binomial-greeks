@@ -4,6 +4,7 @@
 #include <fstream>
 #include <regex>
 #include <string>
+#include <unordered_map>
 
 #include "option_portfolio.h"
 
@@ -25,7 +26,7 @@ std::vector<std::vector<float>> LoadPaths(std::string s_asset);
  *
  * @return vector of UnderlyingPortfolio.
  */
-std::vector<Portfolio::UnderlyingPortfolio> LoadPortfolio();
+std::unordered_map<std::string, Portfolio::UnderlyingPortfolio> LoadPortfolio();
 }; // namespace DataParser
 
 #endif
