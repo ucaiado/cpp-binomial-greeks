@@ -40,7 +40,7 @@ options/src/main.cpp-*
 
 # sumodules
 CppND-Capstone/build
-CppND-Capstone/src
+# CppND-Capstone/src
 .vscode/
 
 
