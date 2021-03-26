@@ -26,7 +26,7 @@ std::vector<std::vector<float>> LoadPaths(std::string s_asset);
  *
  * @return vector of UnderlyingPortfolio.
  */
-std::unordered_map<std::string, Portfolio::UnderlyingPortfolio> LoadPortfolio();
+Portfolio LoadPortfolio();
 }; // namespace DataParser
 
 #endif

@@ -11,12 +11,12 @@ services:
       - ../CppND-Capstone:/CppND-Capstone
       - ../options/src:/CppND-Capstone/src
       - ../options/test/simple_tests.cpp:/CppND-Capstone/src/main.cpp
-      - ../scripts/build-project.sh:/build-project.sh
+      - ../scripts/build-project.simpletests.sh:/build-project.simpletests.sh
     environment:
         - DISPLAY=docker.for.mac.host.internal:0
     command: >
       bash -c "
-      chmod +x /build-project.sh &&
+      chmod +x /build-project.simpletests.sh &&
       export DISPLAY=host.docker.internal:0 &&
-      /build-project.sh
+      /build-project.simpletests.sh
       "

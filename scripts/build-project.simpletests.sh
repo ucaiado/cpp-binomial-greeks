@@ -2,7 +2,8 @@
 BuildDir="build"
 
 cd /CppND-Capstone/
-clang-format src/* -i
+clang-format src/file_parser.* -i
+clang-format src/option_portfolio.* -i
 if [ ! -d "$BuildDir" ]; then
 mkdir $BuildDir
 else
@@ -14,4 +15,7 @@ cd $BuildDir
 # build project
 cmake ..
 make
+
+# run the program created
+./OptionsData
 

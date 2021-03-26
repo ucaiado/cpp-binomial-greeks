@@ -9,9 +9,5 @@ int main() {
 
   auto this_portfolio = DataParser::LoadPortfolio();
 
-  std::cout << "All working on LoadPortfolio! " << this_portfolio.size()
-            << "\n";
-  std::cout << "All working on LoadPortfolio! " << this_portfolio[37].underlying
-            << "\n";
   return 0;
 }
