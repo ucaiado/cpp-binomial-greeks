@@ -8,7 +8,17 @@
 
 #include "option_portfolio.h"
 
+/* Implementation Option functions */
+double Options::Max(double a, double b) {
+  if (a > b) {
+    return a;
+  }
+
+  return b;
+}
+
 /* Implementation of class "Portfolio" */
+
 Portfolio::Portfolio() {}
 
 void Portfolio::total_rows(int i_size) { _total_rows = i_size - 1; }

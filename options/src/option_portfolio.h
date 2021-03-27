@@ -10,10 +10,14 @@
 
 namespace Options {
 // Option Type. Can be call or put
-enum Type { CALL, PUTT };
+enum Type { CALL, PUT };
 
 // Option Style. Can be American or Europian
 enum Style { AMER, EURO };
+
+// Return max between two numbers
+double Max(double a, double b);
+
 }; // namespace Options
 
 namespace Instrument {
