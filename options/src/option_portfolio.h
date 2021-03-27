@@ -47,10 +47,10 @@ struct Params {
   float quantity;         // Qty
   float price;            // Price
   float volume;           // Volume
-  float T;                // Wrd
-  float K;                // Strike
-  float S;                // S
-  float r;
+  float T = 9999;         // Wrd
+  float K = 0;            // Strike
+  float S;                // Stock price
+  float r = 0.0275;
   float vol;                   // ImpVol
   Options::Type option_type;   // OptnTp
   Options::Style option_style; // OptnStyle

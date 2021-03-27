@@ -62,6 +62,32 @@ void Portfolio::useCellValue(Instrument::Params &instr, std::string &this_cell,
   } else if (i_col == 5) {
     // process Volume
     instr.volume = std::stof(this_cell);
+  } else if (instr.type == Instrument::Type::OPTION) {
+    if (i_col == 6) {
+      // process Wrd
+      instr.T = std::stof(this_cell);
+    } else if (i_col == 7) {
+      // process Strike
+      instr.K = std::stof(this_cell);
+    } else if (i_col == 8) {
+      // process OptnStyle
+      instr.option_style = Options::Style::AMER;
+      if (this_cell == "EURO") {
+        instr.option_style = Options::Style::EURO;
+      }
+    } else if (i_col == 9) {
+      // process OptnTp
+      instr.option_type = Options::Type::CALL;
+      if (this_cell == "PUTT") {
+        instr.option_type = Options::Type::PUT;
+      }
+    } else if (i_col == 11) {
+      // process ImpVol
+      instr.vol = std::stof(this_cell);
+    }
+  } else if (i_col == 10) {
+    // process S
+    instr.S = std::stof(this_cell);
   } else if (i_col == 12) {
     std::string s_undly = instr.underlying;
     _undly_portfolio[s_undly]->underlying_id = std::stoi(this_cell);
