@@ -96,3 +96,125 @@ float Pricing::binomialtree(Instrument::Params &instr, int i_num_steps)
 
   return vec_tree[0];
 }
+
+
+float Pricing::binomialdelta(Instrument::Params instr, int num_steps)
+{
+
+    // get the price  with the current value of S
+    float f_price1 = binomialtree(instr, num_steps);
+
+    // save the current value and increment it by 0.1%
+    float f_temp = instr.S;
+    instr.S *= (1+0.001);
+
+    // get the price  with the incremented value of S
+    float f_price2 = binomialtree(instr, num_steps);
+
+    // set the value to the original one
+    instr.S = f_temp;
+
+    // compute the delta numerically
+    float f_delta = (f_price2 - f_price1) / (0.001 * instr.S);
+
+    return f_delta;
+}
+
+
+float Pricing::binomialgamma(Instrument::Params instr, int num_steps)
+{
+
+    // get the price  with the current value of S
+    float f_price1 = binomialtree(instr, num_steps);
+
+    // save the current value and increment it by 0.1%
+    float f_temp = instr.S;
+    instr.S *= (1+0.001);
+
+    // get the price  with the incremented value of S
+    float f_price2 = binomialtree(instr, num_steps);
+
+    // decrement the current value by 0.1%
+    instr.S = f_temp * (1-0.001);
+
+    // get the price  with the decremented value of S
+    float f_price3 = binomialtree(instr, num_steps);
+
+    // set the value to the original one
+    instr.S = f_temp;
+
+    // compute the gamma numerically
+    float f_gamma = (f_price2 - 2 * f_price1 + f_price3) / pow((0.001 * instr.S), 2);
+
+    return f_gamma;
+}
+
+
+
+float Pricing::binomialtheta(Instrument::Params instr, int num_steps)
+{
+
+    // get the price  with the current expiration of the option
+    float f_price1 = binomialtree(instr, num_steps);
+
+    // save the current value and increment it by 0.1%
+    float f_temp = instr.T;
+    instr.T += 1.0;
+
+    // get the price  with the incremented expiration of the option
+    float f_price2 = binomialtree(instr, num_steps);
+
+    // set the value to the original one
+    instr.T = f_temp;
+
+    // compute the theta numerically
+    float f_theta = (f_price2 - f_price1) / 1.0;
+
+    return f_theta;
+}
+
+
+float Pricing::binomialvega(Instrument::Params instr, int num_steps)
+{
+
+    // get the price  with the current volatility of the option
+    float f_price1 = binomialtree(instr, num_steps);
+
+    // save the current value and increment it by 0.1%
+    float f_temp = instr.vol;
+    instr.vol *= (1+0.001);
+
+    // get the price  with the incremented volatility of the option
+    float f_price2 = binomialtree(instr, num_steps);
+
+    // set the value to the original one
+    instr.vol = f_temp;
+
+    // compute the vega numerically
+    float f_vega = (f_price2 - f_price1) / (0.001 * instr.vol);
+
+    return f_vega;
+}
+
+
+float Pricing::binomialrho(Instrument::Params instr, int num_steps)
+{
+
+    // get the price  with the current interest rate
+    float f_price1 = binomialtree(instr, num_steps);
+
+    // save the current value and increment it by 0.1%
+    float f_temp = instr.r;
+    instr.r *= (1+0.001);
+
+    // get the price  with the incremented interest rate
+    float f_price2 = binomialtree(instr, num_steps);
+
+    // set the value to the original one
+    instr.r = f_temp;
+
+    // compute the rho numerically
+    float f_rho = (f_price2 - f_price1) / (0.001 * instr.r);
+
+    return f_rho;
+}

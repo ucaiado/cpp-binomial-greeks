@@ -11,6 +11,18 @@
 #include "option_portfolio.h"
 
 namespace Pricing {
+
+/*
+Struct with epsilons to add to variables to help calculate the Greeks
+*/
+struct GreeksEpsilon {
+  float Delta;
+  float Gamma;
+  float Vega;
+  float Theta;
+  float Rho;
+};
+
 /**
  * Compute option price using the same procedure used by monte carlo pricing,
  * but with paths generated previously. ATENTION: Just use for europian options
@@ -32,6 +44,36 @@ float fixed_mc(Instrument::Params &instr,
  * @return option price
  */
 float binomialtree(Instrument::Params &instr, int num_steps);
+
+
+/*
+return the aproximated options delta using binomial tree
+*/
+float binomialdelta(Instrument::Params instr, int num_steps);
+
+
+/*
+return the aproximated options gamma using binomial tree
+*/
+float binomialgamma(Instrument::Params instr, int num_steps);
+
+
+/*
+return the aproximated options vega using binomial tree
+*/
+float binomialvega(Instrument::Params instr, int num_steps);
+
+
+/*
+return the aproximated options theta using binomial tree
+*/
+float binomialtheta(Instrument::Params instr, int num_steps);
+
+
+/*
+return the aproximated options rho using binomial tree
+*/
+float binomialrho(Instrument::Params instr, int num_steps);
 
 }; // namespace Pricing
 
