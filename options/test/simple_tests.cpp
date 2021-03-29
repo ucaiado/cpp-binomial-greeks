@@ -54,5 +54,6 @@ int main() {
 
     std::cout << "current delta for all " << this_underlying->underlying << " options is " << this_underlying->pnl << "\n";
     std::cout << "current pnl for all " << this_underlying->underlying << " options is " << this_underlying->undly_greeks.delta << "\n";
+
     return 0;
 }
