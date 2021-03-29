@@ -15,6 +15,15 @@ enum Type { CALL, PUT };
 // Option Style. Can be American or Europian
 enum Style { AMER, EURO };
 
+// Option Greeks
+struct Greeks {
+  float delta;
+  float gamma;
+  float vega;
+  float theta;
+  float rho;
+};
+
 // Return max between two numbers
 double Max(double a, double b);
 
@@ -41,24 +50,28 @@ enum Type { STOCK, OPTION };
  * @param instrument_type. InstrumentType object.
  * @param option_type. OptionType object.
  * @param option_style. OptionStyle object.
- * @param H1.
+ * @param option_greeks. Option Greeks object.
+ * @param theorical_price. Theorical price of the option
+ * @param pnl. Current pnl of this position
  */
 struct Params {
-  Type type;              // Type
-  std::string underlying; // Underlying
-  int underlying_id;      // UnderlyingID
-  std::string symbol;     // Instrument
-  float quantity;         // Qty
-  float price;            // Price
-  float volume;           // Volume
-  float T = 9999;         // Wrd
-  float K = 0;            // Strike
-  float S;                // Stock price
-  float r = 0.0275;
-  float vol;                   // ImpVol
-  Options::Type option_type;   // OptnTp
-  Options::Style option_style; // OptnStyle
-  float H1;
+  Type type;                     // Type
+  std::string underlying;        // Underlying
+  int underlying_id;             // UnderlyingID
+  std::string symbol;            // Instrument
+  float quantity;                // Qty
+  float price;                   // Price
+  float volume;                  // Volume
+  float T = 9999;                // Wrd
+  float K = 0;                   // Strike
+  float S;                       // Stock price
+  float r = 0.0275;              // interest rate
+  float vol;                     // ImpVol
+  Options::Type option_type;     // OptnTp
+  Options::Style option_style;   // OptnStyle
+  Options::Greeks option_greeks; // OptnGreeks
+  float theorical_price;         // Price computed by a model
+  float pnl;                     // current pnl of this options
 };
 }; // namespace Instrument
 
@@ -68,12 +81,14 @@ struct Params {
  * @param underlying. Name of the underlying
  * @param underlying_id. underlying ID
  * @param undly_portfolio. A vector of instruments related to this underlying
- * @param undly_paths. A vector of random paths related to this underlying
+ * @param undly_greeks. Consolidated greeks for this underlying
  */
 struct UnderlyingParams {
-  std::string underlying; // Underlying
-  int underlying_id;      // UnderlyingID
-  std::string bla;        // Instrument
+  std::string underlying;       // Underlying
+  int underlying_id;            // UnderlyingID
+  std::string bla;              // Instrument
+  Options::Greeks undly_greeks; // consolidated OptnGreeks
+  float pnl;                    // current pnl of Underlying
   std::vector<Instrument::Params> undly_positions;
 };
 
@@ -95,6 +110,7 @@ public:
 
   // typical behaviour methods
   void addInstrument2UnderlyingPositions(Instrument::Params &instr);
+
   //   use a cell extract from a row from portfolio.csv file to fill in
   //     informations in a UnderlyingParams or a InstrumentParams object.
   //     this_cell is the cell value and i_col, the column index

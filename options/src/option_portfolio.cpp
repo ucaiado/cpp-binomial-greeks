@@ -41,6 +41,14 @@ std::shared_ptr<UnderlyingParams> Portfolio::getUnderlying(std::string s_udly) {
   ;
 }
 
+std::vector<std::string> Portfolio::getUnderlyingsList() {
+  std::vector<std::string> vec_underlyings{};
+  for (auto &this_pair : _undly_portfolio) {
+    vec_underlyings.push_back(this_pair.second->underlying);
+  }
+  return vec_underlyings;
+}
+
 // Type,Underlying,Instrument,Qty,Price,Volume,Wrd,Strike,OptnStyle,OptnTp,S,ImpVol,UnderlyingID
 // option,B3SA3,B3SAD540,100.0,2.53,-252.99999999999997,20.0,53.66,AMER,CALL,55.9,0.3675,0
 void Portfolio::useCellValue(Instrument::Params &instr, std::string &this_cell,
