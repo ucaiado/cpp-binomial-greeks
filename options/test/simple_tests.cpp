@@ -55,5 +55,18 @@ int main() {
     std::cout << "current delta for all " << this_underlying->underlying << " options is " << this_underlying->pnl << "\n";
     std::cout << "current pnl for all " << this_underlying->underlying << " options is " << this_underlying->undly_greeks.delta << "\n";
 
+
+    auto this_underlying2 = portfolio.getUnderlying("NTCO3");
+    std::cout << "Number of instruments on NTCO3: " << this_underlying->undly_positions.size() << "\n";
+
+    auto this_instrument2 = this_underlying2->undly_positions[2];
+    std::cout << "last instrument from NTCO3: " << this_instrument2.symbol << "\n";
+
+    float f_price2 = Pricing::binomialtree(this_instrument2, 20);
+    std::cout << "the binomial price for " << this_instrument2.symbol << " is " << f_price2 << "\n";
+
+    float f_gamma2 = Pricing::binomialgamma(this_instrument2, 20);
+    std::cout << "the binomial gamma for " << this_instrument2.symbol << " is " << f_gamma2 << "\n";
+
     return 0;
 }

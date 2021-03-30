@@ -128,7 +128,7 @@ float Pricing::binomialgamma(Instrument::Params instr, int i_num_steps) {
 
   // save the current value and increment it by 0.1%
   float f_temp = instr.S;
-  instr.S *= (1 + 0.001);
+  instr.S = f_temp * (1 + 0.001);
 
   // get the price  with the incremented value of S
   float f_price2 = binomialtree(instr, i_num_steps);
@@ -142,12 +142,20 @@ float Pricing::binomialgamma(Instrument::Params instr, int i_num_steps) {
   // set the value to the original one
   instr.S = f_temp;
 
+  // std::cout << f_price1 << "\n";
+  // std::cout << f_price2 << "\n";
+  // std::cout << f_price3 << "\n";
+  // std::cout << (instr.S) << "\n";
+  // std::cout << (0.001 * instr.S) << "\n";
+  // std::cout << (1.0 / instr.S) << "\n";
+
   // compute the gamma numerically. the unit is 1 / brl
   float f_gamma =
       (f_price2 - 2 * f_price1 + f_price3) / pow((0.001 * instr.S), 2);
 
+  // std::cout << f_gamma << "\n";
   // change unit to how much long/short more it gets / 1% in S
-  f_gamma /= (1.0 / instr.S);
+  f_gamma /= (1.0 / instr.S) * 100;
 
   return f_gamma;
 }

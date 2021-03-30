@@ -88,11 +88,11 @@ void DataParser::SaveOptionGreeks(Portfolio &this_portfolio,
       myfile << this_instr.underlying << ",";
       myfile << this_instr.symbol << ",";
       myfile << this_instr.pnl << ",";
-      myfile << this_instr.option_greeks.delta << ",";
-      myfile << this_instr.option_greeks.gamma << ",";
-      myfile << this_instr.option_greeks.vega << ",";
-      myfile << this_instr.option_greeks.theta << ",";
-      myfile << this_instr.option_greeks.rho << "\n";
+      myfile << this_instr.option_greeks.delta * this_instr.quantity << ",";
+      myfile << this_instr.option_greeks.gamma * this_instr.quantity << ",";
+      myfile << this_instr.option_greeks.vega * this_instr.quantity << ",";
+      myfile << this_instr.option_greeks.theta * this_instr.quantity << ",";
+      myfile << this_instr.option_greeks.rho * this_instr.quantity << "\n";
     }
   }
 
