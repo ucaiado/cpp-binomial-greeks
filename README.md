@@ -14,15 +14,12 @@ This project is part of the [C++ Nanodegree](https://www.udacity.com/course/c-pl
 
 
 ### Install
-To set up your python environment to run the code in this repository, start by
- creating a new environment with Anaconda and install de dependencies. You also
- need to install Docker and Make in your machine (in Windows, you may want to try
- [chocolatery](https://chocolatey.org/packages/make)).
+To set up your environment to run the code in this repository, start by
+ installing Docker and Make in your machine (in Windows, you may want to try
+ [chocolatery](https://chocolatey.org/packages/make)). Then, run the following
+ commands
 
 ```shell
-$ conda create --name greeks python=3.6
-$ source activate greeks
-$ pip install -r requirements.txt
 $ make docker-build
 $ make environment-test
 ```
@@ -30,8 +27,8 @@ $ make environment-test
 
 ### Run
 In a terminal or command window, navigate to the top-level project directory
- `cpp-copula-greeks/` (that contains this README) and run the following
- command, which will ....
+ `cpp-binomial-greeks/` (that contains this README) and run the following
+ command.
 
 ```shell
 $ make greeks-computation

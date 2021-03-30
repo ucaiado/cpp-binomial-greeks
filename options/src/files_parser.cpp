@@ -1,6 +1,7 @@
 #include <dirent.h>
 #include <fstream>
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <unistd.h>
 #include <unordered_map>
