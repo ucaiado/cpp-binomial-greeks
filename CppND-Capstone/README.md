@@ -43,13 +43,13 @@ This project is part of the [C++ Nanodegree](https://www.udacity.com/course/c-pl
 ## Rubric Points Addressed
 
 This project addressed many of the points suggested in the rubric. For example,
- in file/header `file_parser` **, the program reads data from a file, processes
- it, and then writes the output to another file**.  The project also **uses
- Object Oriented Programming techniques** and **uses appropriate access
+ in file/header `file_parser`, (1)**the program reads data from a file, processes
+ it, and then writes the output to another file**. The project also (2)**uses
+ Object Oriented Programming techniques** and (3)**uses appropriate access
  specifiers for class members**. The class Portfolio is in the file/header
- `option_portfolio`. The project also ** uses references in function
+ `option_portfolio`. The project also (4)**uses references in function
  declarations**, as can be seen in the function `binomialtree`,  also in
- `option_portfolio`. **Smart pointers instead of raw pointers** are used in
- `compute_udly_greeks`, in `pricing` files. Finally, **the project uses
+ `option_portfolio`. (5)**Smart pointers instead of raw pointers** are used in
+ `compute_udly_greeks`, in `pricing` files. Finally, (6)**the project uses
  multithreading** in `main` to calculate the greeks to all options of each
  underlying stock.
