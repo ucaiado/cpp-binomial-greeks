@@ -2,12 +2,15 @@ Calculating option greeks using Bianomial Tree
 ==============================
 
 This project is part of the [C++ Nanodegree](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213)
- program from Udacity. I develop a program to approximate and consolidate the
- greeks of an options portfolio using the binomial tree model. The greeks are
+ program from Udacity. I develop a program to approximate and consolidate an
+ options portfolio's Greeks using the binomial tree model. The Greeks are
  defined as derivatives of the option value with respect to the underlying
  parameters on which it is dependent. They help decide how to hedge the
  positions against some of its risk drivers, as stock price direction,
- volatility, and interest rate.
+ volatility, and interest rate. After calculating the greeks and current PnL
+ for a portfolio read from `data/portfolio.csv`, the program output the results
+ in the same folder in two different files. One with the data computed to all
+ options and another with the data consolidated by the underlying stock.
 
 
 ### Install
