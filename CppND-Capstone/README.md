@@ -33,6 +33,13 @@ This project is part of the [C++ Nanodegree](https://www.udacity.com/course/c-pl
 4. Run it: `./OptionsData`.
 
 
+### Reference
+1. P. Wilmott.  *Paul Wilmott on Quantitative Finance 3 Volume Set
+ (2nd Edition)*. Wiley, 2006. pg 287-289 [*link*](https://bit.ly/3w8YGPQ)
+2. CL. Costa.  *Opções - Operando Volatilidade*. BMF, 1999. pg 97-99
+ [*link*](https://bit.ly/3db063z)
+
+
 ## Rubric Points Addressed
 
 This project addressed many of the points suggested in the rubric. For example,
