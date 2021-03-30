@@ -66,7 +66,7 @@ void compute_option_greeks(Instrument::Params &instr, int i_num_steps);
 /*
 Fill in undly_greeks and pnl private members of the UnderlyingParams object
 */
-void compute_udly_greeks(std::shared_ptr<UnderlyingParams> &udly,
+void compute_udly_greeks(std::shared_ptr<UnderlyingParams> udly,
                          int i_num_steps);
 
 }; // namespace Pricing

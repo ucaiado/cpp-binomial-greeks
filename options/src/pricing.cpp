@@ -255,7 +255,7 @@ void Pricing::compute_option_greeks(Instrument::Params &instr,
   }
 }
 
-void Pricing::compute_udly_greeks(std::shared_ptr<UnderlyingParams> &udly,
+void Pricing::compute_udly_greeks(std::shared_ptr<UnderlyingParams> udly,
                                   int i_num_steps) {
   // initialize values
   udly->undly_greeks.delta = 0.0;
@@ -282,7 +282,7 @@ void Pricing::compute_udly_greeks(std::shared_ptr<UnderlyingParams> &udly,
 
     // vega:= Vega_pos = ∑ ν_i x Q_i
     float f_posvega = this_instr.option_greeks.vega * this_instr.quantity;
-    udly->undly_greeks.vega += f_posgamma;
+    udly->undly_greeks.vega += f_posvega;
 
     // rho:= Rho_pos = ∑ ρ_i x Q_i
     float f_posrho = this_instr.option_greeks.rho * this_instr.quantity;
@@ -291,4 +291,5 @@ void Pricing::compute_udly_greeks(std::shared_ptr<UnderlyingParams> &udly,
     // pnl:= pnl_pos = ∑ PnL_i
     udly->pnl += this_instr.pnl;
   }
+  std::cout << "   => finish computations of " << udly->underlying << "\n";
 }
